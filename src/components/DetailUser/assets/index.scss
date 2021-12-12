@@ -1,0 +1,24 @@
+.info {
+  &-user {
+    background-color: white;
+    max-width: 80%;
+    width: fit-content;
+    height: 20%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &-userDetail {
+    font-size: 1em;
+    margin-top: 15px;
+  }
+  &-container_buttons {
+    margin-top: 1em;
+  }
+  &-detailContainer {
+    display: initial;
+  }
+  &-formInputs {
+    display: inline-grid;
+  }
+}

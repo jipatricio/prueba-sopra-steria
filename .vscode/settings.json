@@ -1,0 +1,19 @@
+{
+
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "eslint.alwaysShowStatus": true,
+  "prettier.configPath": "./config/prettier.config.js",
+
+  "editor.guides.bracketPairs": true,
+  "editor.linkedEditing": true,
+  "editor.bracketPairColorization.enabled": true,
+}

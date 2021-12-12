@@ -1,0 +1,34 @@
+.card {
+  //default
+  &-images {
+    -webkit-column-count: 3;
+    column-count: 3;
+    justify-content: center;
+  }
+  //ipad landscape
+  @media only screen and(max-device-width: 1024px) {
+    &-images {
+      -webkit-column-count: 3;
+      column-count: 3;
+      justify-content: center;
+    }
+  }
+  //ipad portrait
+  @media only screen and (max-device-width: 833px) {
+    &-images {
+      -webkit-column-count: 2;
+      column-count: 2;
+      justify-content: center;
+    }
+  }
+  &-style {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 33vh;
+  }
+  &-pagination {
+    display: flex;
+    justify-content: center;
+  }
+}
