@@ -3,8 +3,3 @@ export const apiCall = (method, url) => {
     return res.json();
   });
 };
-export const apiCallPut = (method, url, body) => {
-  return fetch(url, { method, body }).then((res) => {
-    return res.json;
-  });
-};
