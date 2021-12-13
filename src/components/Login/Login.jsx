@@ -76,44 +76,42 @@ const ModalLogin = (props) => {
   }, [errorAutentication, firstIntent, loginToken]);
 
   return (
-    <div>
-      <Modal open={props.open} onClose={handleClose}>
-        <Box sx={style}>
-          <Typography id="modal-title" variant="h6" component="h2">
-            {TITLE_LOGIN_MODAL}
+    <Modal open={props.open} onClose={handleClose}>
+      <Box sx={style}>
+        <Typography id="modal-title" variant="h6" component="h2">
+          {TITLE_LOGIN_MODAL}
+        </Typography>
+        <Typography id="modal-description" sx={{ mt: 2 }}>
+          {TEXT_LOGIN_MODAL}
+        </Typography>
+        {errorAutentication && !firstIntent && !loginToken && (
+          <Typography id="modal-error" className="login-errorLogin">
+            {TEXT_LOGIN_FAILED}
           </Typography>
-          <Typography id="modal-description" sx={{ mt: 2 }}>
-            {TEXT_LOGIN_MODAL}
-          </Typography>
-          {errorAutentication && !firstIntent && !loginToken && (
-            <Typography id="modal-error" className="login-errorLogin">
-              {TEXT_LOGIN_FAILED}
-            </Typography>
-          )}
-          <form className="login-form">
-            <input
-              className="login-inputs"
-              placeholder="Email"
-              type="email"
-              id="email-login"
-              name="email"
-              onChange={handleInputOnChange}
-            />
-            <input
-              placeholder="Password"
-              className="login-inputs"
-              id="password"
-              name="password"
-              onChange={handleInputOnChange}
-            />
-          </form>
-          <ButtonGroup className="info-container_buttons">
-            <Button onClick={() => handleAcept()}>{ACEPT}</Button>
-            <Button onClick={() => handleClose()}>{CANCEL}</Button>
-          </ButtonGroup>
-        </Box>
-      </Modal>
-    </div>
+        )}
+        <form className="login-form">
+          <input
+            className="login-inputs"
+            placeholder="Email"
+            type="email"
+            id="email-login"
+            name="email"
+            onChange={handleInputOnChange}
+          />
+          <input
+            placeholder="Password"
+            className="login-inputs"
+            id="password"
+            name="password"
+            onChange={handleInputOnChange}
+          />
+        </form>
+        <ButtonGroup className="info-container_buttons">
+          <Button onClick={() => handleAcept()}>{ACEPT}</Button>
+          <Button onClick={() => handleClose()}>{CANCEL}</Button>
+        </ButtonGroup>
+      </Box>
+    </Modal>
   );
 };
 
