@@ -11,7 +11,6 @@ import {
   ACEPT,
   CANCEL,
   LIST_USERS,
-  TEXT_LOGIN_FAILED,
   TEXT_LOGIN_MODAL,
   TITLE_LOGIN_MODAL,
 } from '../../text/textApp';
@@ -36,8 +35,6 @@ const DEFAULT_PAGE = 1;
 const ModalLogin = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [errorAutentication, setErrorAutentication] = useState(false);
-  const [firstIntent, setFirstIntent] = useState(true);
   const loginToken = useSelector((state) => state.loginReducer.token);
 
   const [loginDetails, setLoginDetails] = useState({
@@ -47,13 +44,10 @@ const ModalLogin = (props) => {
 
   const handleClose = () => {
     props.isVisibleModal(false);
-    setErrorAutentication(false);
-    setFirstIntent(true);
   };
 
-  const handleAcept = () => {
+  const handleAcept = async () => {
     dispatch(requestLogin(loginDetails));
-    setFirstIntent(false);
   };
 
   const handleInputOnChange = (event) => {
@@ -64,16 +58,12 @@ const ModalLogin = (props) => {
   };
 
   useEffect(() => {
-    if (loginToken && !firstIntent) {
-      setErrorAutentication(false);
+    if (loginToken) {
       props.isVisibleModal(false);
       dispatch(requestViewAllUsers(DEFAULT_PAGE));
       navigate(LIST_USERS);
-    } else if (!firstIntent) {
-      setErrorAutentication(true);
-      setFirstIntent(false);
     }
-  }, [errorAutentication, firstIntent, loginToken]);
+  }, [loginToken]);
 
   return (
     <Modal open={props.open} onClose={handleClose}>
@@ -84,11 +74,6 @@ const ModalLogin = (props) => {
         <Typography id="modal-description" sx={{ mt: 2 }}>
           {TEXT_LOGIN_MODAL}
         </Typography>
-        {errorAutentication && !firstIntent && !loginToken && (
-          <Typography id="modal-error" className="login-errorLogin">
-            {TEXT_LOGIN_FAILED}
-          </Typography>
-        )}
         <form className="login-form">
           <input
             className="login-inputs"

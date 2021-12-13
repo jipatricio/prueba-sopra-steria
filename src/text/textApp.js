@@ -14,8 +14,6 @@ export const TITLE_LOGIN_MODAL = 'Login';
 
 export const TEXT_LOGIN_MODAL = 'Introduce tus credenciales:';
 
-export const TEXT_LOGIN_FAILED = 'Password y/o usuario incorrecto';
-
 export const GO_HOME = 'Volver a inicio';
 
 export const DELETE = 'Borrar';
